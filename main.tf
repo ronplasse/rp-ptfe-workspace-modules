@@ -24,3 +24,39 @@ module "rpnetworking" {
   vnet_address_spacing    = var.vnet_address_spacing
   subnet_address_prefixes = var.subnet_address_prefixes
 }
+
+module "rpwebserver" {
+  source  = "app.terraform.io/ftfcu-training/rpwebserver/azurerm"
+  version = "0.12.0"
+
+  name      = var.name
+  location  = var.location
+  subnet_id = module.networking.subnet-ids[0]
+  vm_count  = 1
+  username  = var.username
+  password  = var.password
+}
+
+module "rpappserver" {
+  source  = "app.terraform.io/ftfcu-training/rpappserver/azurerm"
+  version = "0.12.0"
+
+  name      = var.name
+  location  = var.location
+  subnet_id = module.networking.subnet-ids[1]
+  vm_count  = 1
+  username  = var.username
+  password  = var.password
+}
+
+module "rpdataserver" {
+  source  = "app.terraform.io/ftfcu-training/rpdataserver/azurerm"
+  version = "0.12.0"
+
+  name      = var.name
+  location  = var.location
+  subnet_id = module.networking.subnet-ids[2]
+  vm_count  = 1
+  username  = var.username
+  password  = var.password
+}
