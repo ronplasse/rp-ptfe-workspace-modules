@@ -31,7 +31,7 @@ module "rpwebserver" {
 
   name      = var.name
   location  = var.location
-  subnet_id = module.networking.subnet-ids[0]
+  subnet_id = module.rpnetworking.subnet-ids[0]
   vm_count  = 1
   username  = var.username
   password  = var.password
@@ -43,7 +43,7 @@ module "rpappserver" {
 
   name      = var.name
   location  = var.location
-  subnet_id = module.networking.subnet-ids[1]
+  subnet_id = module.rpnetworking.subnet-ids[1]
   vm_count  = 1
   username  = var.username
   password  = var.password
@@ -55,7 +55,7 @@ module "rpdataserver" {
 
   name      = var.name
   location  = var.location
-  subnet_id = module.networking.subnet-ids[2]
+  subnet_id = module.rpnetworking.subnet-ids[2]
   vm_count  = 1
   username  = var.username
   password  = var.password
