@@ -15,8 +15,8 @@ variable "subnet_address_prefixes" {
   type = "list"
 }
 
-module "networking" {
-  source  = "tap-tfe.digitalinnovation.dev/ftfcu-training/networking/azurerm"
+module "rpnetworking" {
+  source  = "app.terraform.io/ftfcu-training/rpnetworking/azurerm"
   version = "0.12.0"
 
   name                    = var.name
