@@ -16,7 +16,7 @@ variable "subnet_address_prefixes" {
 }
 
 module "networking" {
-  source  = "tap-tfe.digitalinnovation.dev/YOUR_ORG_NAME/networking/azurerm"
+  source  = "tap-tfe.digitalinnovation.dev/ftfcu-training/networking/azurerm"
   version = "0.12.0"
 
   name                    = var.name
